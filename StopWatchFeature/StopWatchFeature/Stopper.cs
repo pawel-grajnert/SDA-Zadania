@@ -43,7 +43,7 @@ public class Stopper : IStopper
 
         if (result <= TimeSpan.Zero)
         {
-
+            throw new SystemException("Time result is lower than zero!");
         }
 
         return result;
