@@ -17,18 +17,21 @@ public class Stopper : IStopper
         {
             throw new SystemException("Stopper is already running. You cannot start it again.");
         }
-        _startTime = DateTime.Now;
-        _isRunning = true;
-    }
 
+        _isRunning = true;
+        _startTime = DateTime.Now;
+    }
+    
     public void Stop()
     {
+        var endTime = DateTime.Now;
+
         if (!_isRunning)
         {
             throw new SystemException("You cannot stop not running Stopper");
         }
 
-        _endTime = DateTime.Now;
+        _endTime = endTime;
         _isRunning = false;
     }
 
