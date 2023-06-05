@@ -1,27 +1,29 @@
-﻿using CarConfigurator.Entity;
-using CarConfigurator.Types;
+﻿using CarConfigurator.Types;
 
-namespace CarConfigurator.Builders;
+namespace CarConfigurator.Entity;
 
-public class CarInteriorBuilder : CarConfigurator
+public partial class Car
 {
-    private Car _car;
-
-    public CarInteriorBuilder(Car car) : base(car)
+    public class CarInteriorBuilder : CarConfigurator
     {
-        _car = car;
-        _car.Interior ??= new Interior();
-    }
+        private Car _car;
 
-    public CarInteriorBuilder WithSteeringWheel(DrivingWheelType wheel)
-    {
-        _car.Interior.DrivingWheelType = wheel;
-        return this;
-    }
+        public CarInteriorBuilder(Car car) : base(car)
+        {
+            _car = car;
+            _car.Interior ??= new Interior();
+        }
 
-    public CarInteriorBuilder WithSits(SitsType sits)
-    {
-        _car.Interior.SitsType = sits;
-        return this;
+        public CarInteriorBuilder WithSteeringWheel(DrivingWheelType wheel)
+        {
+            _car.Interior.DrivingWheelType = wheel;
+            return this;
+        }
+
+        public CarInteriorBuilder WithSits(SitsType sits)
+        {
+            _car.Interior.SitsType = sits;
+            return this;
+        }
     }
 }

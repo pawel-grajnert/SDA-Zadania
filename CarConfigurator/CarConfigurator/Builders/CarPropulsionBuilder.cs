@@ -1,33 +1,36 @@
-﻿using CarConfigurator.Entity;
-using CarConfigurator.Types;
+﻿using CarConfigurator.Types;
 
-namespace CarConfigurator.Builders;
+namespace CarConfigurator.Entity;
 
-public class CarPropulsionBuilder : CarConfigurator
+
+public partial class Car
 {
-    private Car _car;
-
-    public CarPropulsionBuilder(Car car) : base(car)
+    public class CarPropulsionBuilder : CarConfigurator
     {
-        _car = car;
-        _car.Propulsion ??= new Propulsion();
-    }
+        private Car _car;
 
-    public CarPropulsionBuilder WithEngine(Engine engine)
-    {
-        _car.Propulsion.Engine = engine;
-        return this;
-    }
+        public CarPropulsionBuilder(Car car) : base(car)
+        {
+            _car = car;
+            _car.Propulsion ??= new Propulsion();
+        }
 
-    public CarPropulsionBuilder WithTransmission(Transmission transmission)
-    {
-        _car.Propulsion.Transmission = transmission;
-        return this;
-    }
+        public CarPropulsionBuilder WithEngine(Engine engine)
+        {
+            _car.Propulsion.Engine = engine;
+            return this;
+        }
 
-    public CarPropulsionBuilder WithPropulsionType(PropulsionType propulsionType)
-    {
-        _car.Propulsion.Type = propulsionType;
-        return this;
+        public CarPropulsionBuilder WithTransmission(Transmission transmission)
+        {
+            _car.Propulsion.Transmission = transmission;
+            return this;
+        }
+
+        public CarPropulsionBuilder WithPropulsionType(PropulsionType propulsionType)
+        {
+            _car.Propulsion.Type = propulsionType;
+            return this;
+        }
     }
 }

@@ -1,27 +1,29 @@
-﻿using CarConfigurator.Entity;
-using CarConfigurator.Types;
+﻿using CarConfigurator.Types;
 
-namespace CarConfigurator.Builders;
+namespace CarConfigurator.Entity;
 
-public class CarExteriorBuilder : CarConfigurator
+public partial class Car
 {
-    private Car _car;
-
-    public CarExteriorBuilder(Car car) : base(car)
+    public class CarExteriorBuilder : CarConfigurator
     {
-        _car = car;
-        _car.Exterior ??= new Exterior();
-    }
+        private Car _car;
 
-    public CarExteriorBuilder WithColor(CarColor color)
-    {
-        _car.Exterior.Color = color;
-        return this;
-    }
+        public CarExteriorBuilder(Car car) : base(car)
+        {
+            _car = car;
+            _car.Exterior ??= new Exterior();
+        }
 
-    public CarExteriorBuilder WithTyresType(TyresType tyres)
-    {
-        _car.Exterior.TyresType = tyres;
-        return this;
+        public CarExteriorBuilder WithColor(CarColor color)
+        {
+            _car.Exterior.Color = color;
+            return this;
+        }
+
+        public CarExteriorBuilder WithTyresType(TyresType tyres)
+        {
+            _car.Exterior.TyresType = tyres;
+            return this;
+        }
     }
 }

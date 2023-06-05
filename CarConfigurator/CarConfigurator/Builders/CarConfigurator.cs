@@ -1,28 +1,30 @@
-﻿using CarConfigurator.Entity;
-using CarConfigurator.Types;
+﻿using CarConfigurator.Types;
 
-namespace CarConfigurator.Builders;
+namespace CarConfigurator.Entity;
 
-public class CarConfigurator
+public partial class Car
 {
-    private Car _car { get; set; }
-
-    public CarConfigurator(CarModel carModel, int productionYear)
+    public class CarConfigurator
     {
-        _car = new Car() { Model = carModel, ProductionYear = productionYear };
-    }
+        private Car _car { get; set; }
 
-    protected CarConfigurator(Car car)
-    {
-        _car = car;
-    }
+        public CarConfigurator(CarModel carModel, int productionYear)
+        {
+            _car = new Car() { Model = carModel, ProductionYear = productionYear };
+        }
 
-    public CarInteriorBuilder HasInterior => new(_car);
-    public CarExteriorBuilder HasExterior => new(_car);
-    public CarPropulsionBuilder HasPropulsion => new(_car);
-    
-    public Car Build()
-    {
-        return _car;
+        protected CarConfigurator(Car car)
+        {
+            _car = car;
+        }
+
+        public CarInteriorBuilder HasInterior => new(_car);
+        public CarExteriorBuilder HasExterior => new(_car);
+        public CarPropulsionBuilder HasPropulsion => new(_car);
+        
+        public Car Build()
+        {
+            return _car;
+        }
     }
 }
