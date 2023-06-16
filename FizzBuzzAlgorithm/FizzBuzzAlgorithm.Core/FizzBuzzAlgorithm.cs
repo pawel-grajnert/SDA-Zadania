@@ -4,18 +4,21 @@ namespace FizzBuzzAlgorithm.Core;
 
 public class FizzBuzzAlgorithm
 {
+    private const string Buzz = "buzz";
+    private const string Fizz = "fizz";
+
     public string ProcessNumber(int number)
     {
         StringBuilder resultBuilder = new();
 
         if (number % 3 == 0)
         {
-            resultBuilder.Append("fizz");
+            resultBuilder.Append(Fizz);
         }
         
         if (number % 5 == 0)
         {
-            resultBuilder.Append("buzz");
+            resultBuilder.Append(Buzz);
         }
 
         if (resultBuilder.Length == 0)
