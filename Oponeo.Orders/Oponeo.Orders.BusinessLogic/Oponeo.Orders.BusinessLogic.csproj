@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Orders\" />
+    <Folder Include="Services\" />
+    <Folder Include="Validators\" />
+    <Folder Include="PriceCalculator\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Oponeo.Orders.Domain\Oponeo.Orders.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
