@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 
 namespace BenchmarkTest;
 
-[SimpleJob(RunStrategy.ColdStart, launchCount: 1000)]
+[SimpleJob(RunStrategy.ColdStart, launchCount: 10)]
 [MinColumn, MaxColumn, MeanColumn, MedianColumn]
 public class StringAnalyzer
 {
