@@ -37,15 +37,8 @@ public class Repository<TEntity> : IRepository<TEntity> where TEntity : EntityBa
         await _context.SaveChangesAsync();
     }
 
-    public async Task DeleteAsync(int id)
+    public async Task DeleteAsync(TEntity entity)
     {
-        var entity = await _dbSet.SingleOrDefaultAsync(e => e.Id == id);
-
-        if (entity is null)
-        {
-            throw new ArgumentNullException(nameof(entity));
-        }
-
         entity.IsActive = false;
         await _context.SaveChangesAsync();
     }

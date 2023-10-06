@@ -78,8 +78,6 @@ public class ProductService : IProductService
             throw new ProductManagementException(HttpStatusCode.NotFound, $"Product with id {id} not exists!");
         }
 
-        productToDelete.IsActive = false;
-
-        await _repository.Update(productToDelete);
+        await _repository.DeleteAsync(productToDelete);
     }
 }
