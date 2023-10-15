@@ -14,9 +14,9 @@ public class ProductViewModel
 
     [DisplayName("Opis produktu")]
     public string? Description { get; set; }
-    
+
     [DisplayName("Cena")]
-    [Range(1,10000)]
+    [Range(1, 10000)]
     public decimal Price { get; set; }
 
     public DateTime? CreateDate { get; set; }
